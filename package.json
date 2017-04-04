@@ -1,0 +1,26 @@
+{
+  "name": "native-speaker",
+  "version": "1.0.0",
+  "description": "Project to connect natives with people who wants to leran a new language.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -l src/server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelbenetti/native-speaker.git"
+  },
+  "keywords": [
+    "english;native;chat;learn"
+  ],
+  "author": "Rafael de Oliveira Benetti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelbenetti/native-speaker/issues"
+  },
+  "homepage": "https://github.com/rafaelbenetti/native-speaker#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0"
+  }
+}
