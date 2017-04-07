@@ -6,7 +6,7 @@
     var app = require('./src/server/config/express');
 
     http.createServer(app)
-        .listen(host.port, host.address, () => {
-            console.log(`Node server: http://${host.address}:${host.port}`);
+        .listen(host.port, () => {
+            console.log(`Node server: ${host.port}`);
         });
 })(); 
