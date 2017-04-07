@@ -20,7 +20,11 @@
   },
   "homepage": "https://github.com/rafaelbenetti/native-speaker#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "express-load": "^1.1.15"
+  },
+  "devDependencies": {
     "nodemon": "^1.11.0"
   }
 }
