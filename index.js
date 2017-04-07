@@ -9,4 +9,4 @@
         .listen(host.port, host.address, () => {
             console.log(`Node server: http://${host.address}:${host.port}`);
         });
-})();
+})(); 

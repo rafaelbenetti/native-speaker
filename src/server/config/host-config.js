@@ -2,7 +2,7 @@
     'use strict';
 
     let host = {
-        port: 3000,
+        port: process.env.PORT || 3000,
         address: 'localhost'
     };
 

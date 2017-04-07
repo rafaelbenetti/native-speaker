@@ -11,7 +11,11 @@
             res.json(users);
         })
         .post((req, res) => {
-            res.status(201).json('Usuário cadastrado com sucesso.');
+            let user = userController.create(req.body);
+            if(user)
+                res.status(201).json(user);
+            else
+                res.status(400).json('Ocorreu um erro ao salvar o usuário');
         });
 
     module.exports = router;

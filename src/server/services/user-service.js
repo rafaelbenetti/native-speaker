@@ -25,5 +25,10 @@
         return users;
     };
 
+    userService.create = function(user) {
+        users.push(user);
+        return user;
+    };
+
     module.exports = userService;
 })();

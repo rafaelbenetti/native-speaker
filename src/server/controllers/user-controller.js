@@ -5,9 +5,8 @@
 
     let userController = {};
 
-    userController.find = function(name) {
-        return userService.find(name);
-    };
+    userController.find = name => userService.find(name);
+    userController.create = user => userService.create(user);
 
     module.exports = userController;
 })();
