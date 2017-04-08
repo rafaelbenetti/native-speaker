@@ -6,13 +6,13 @@
 
     let router = express.Router();
     router.route('/')
-        .get((req, res) => {            
+        .get((req, res) => {
             let users = userController.find();
             res.json(users);
         })
         .post((req, res) => {
             let user = userController.create(req.body);
-            if(user)
+            if (user)
                 res.status(201).json(user);
             else
                 res.status(400).json('Ocorreu um erro ao salvar o usuário');
@@ -21,12 +21,12 @@
     router.route('/:name')
         .get((req, res) => {
             let user = userController.find(req.params.name);
-            res.json(user);
+            res.render('user-detail.ejs', { user: user });
         })
         .delete((req, res) => {
             userController.delete(req.params.name);
             res.sendStatus(204);
-        }); 
- 
+        });
+
     module.exports = router;
 })();

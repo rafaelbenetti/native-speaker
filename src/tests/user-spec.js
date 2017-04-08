@@ -70,5 +70,20 @@
                 .delete('/users/Oscar')
                 .expect(204, done); 
         });
-    })
+    });
+
+    describe('Get user details', function() {
+
+        it('Returns HTML format', function(done) {
+            request(app)
+                .get('/users/Jubileu')
+                .expect('Content-Type', /html/, done);
+        });
+
+        it('Returns user name', function(done) {
+            request(app)
+                .get('/user/Oscar')
+                .expect(/oscar/i, done);
+        });
+    });
 })();

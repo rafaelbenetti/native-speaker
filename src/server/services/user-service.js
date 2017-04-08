@@ -23,7 +23,7 @@
 
     userService.find = function(name) {
         if(name)
-            return users.filter(u => u.name == name);
+            return users.find(u => u.name == name);
         return users;
     };
 
