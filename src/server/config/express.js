@@ -13,7 +13,7 @@
     // Cria uma aplicação stática com todo o conteúdo da pasta.
     app.use(express.static(path.join(__dirname, publicFolder)));
 
-    // Convert the return to json. basically
+    // Convert o retorno para json, basicamente.
     app.use(bodyParser.urlencoded({extended: false}));
 
     // Converte as requisições para json, chegando no req.body..???
@@ -21,5 +21,5 @@
 
     app.use('/users', userRoutes);    
     
-    module.exports = app;   
-})(); 
+    module.exports = app;
+})();

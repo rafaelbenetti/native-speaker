@@ -18,5 +18,15 @@
                 res.status(400).json('Ocorreu um erro ao salvar o usuário');
         });
 
+    router.route('/:name')
+        .get((req, res) => {
+            let user = userController.find(req.params.name);
+            res.json(user);
+        })
+        .delete((req, res) => {
+            userController.delete(req.params.name);
+            res.sendStatus(204);
+        }); 
+ 
     module.exports = router;
 })();

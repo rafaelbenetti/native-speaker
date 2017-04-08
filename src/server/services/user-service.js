@@ -22,6 +22,8 @@
     }];
 
     userService.find = function(name) {
+        if(name)
+            return users.filter(u => u.name == name);
         return users;
     };
 
@@ -29,6 +31,12 @@
         users.push(user);
         return user;
     };
+
+    userService.delete = function(name) {
+        let user = userService.find(name);
+        let index = users.indexOf(user);
+        users.splice(index, 1);
+    }
 
     module.exports = userService;
 })();

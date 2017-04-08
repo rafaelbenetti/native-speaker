@@ -40,23 +40,35 @@
             request(app)
                 .get('/users')
                 .expect(JSON.stringify(users), done);
-        });       
+        });
     });
 
-    describe('Creating new users', function() {
+    describe('Creating new users', function () {
 
-        it('Returns 201 status', function(done) {
+        it('Returns 201 status', function (done) {
             request(app)
                 .post('/users')
                 .send('name=arnold&age=17')
                 .expect(201, done);
         });
 
-        it('Returns complete user', function(done) {
+        it('Returns complete user', function (done) {
             request(app)
                 .post('/users')
                 .send('name=arnold&age=17')
-                .expect({"name":"arnold","age":17}, done);
+                .expect({
+                    "name": "arnold",
+                    "age": 17
+                }, done);
+        });
+    });
+
+    describe('Deleting users', function () {
+
+        it('Delete user', function (done) {
+            request(app)
+                .delete('/users/Oscar')
+                .expect(204, done); 
         });
     })
 })();
