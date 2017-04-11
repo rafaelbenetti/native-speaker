@@ -13,4 +13,4 @@ RUN npm install nodemon -g
 COPY . /usr/src/app
 
 EXPOSE 3000
-CMD ["nodemon", "-L", "/usr/src/app/index.js"]
+CMD ["npm", "start"]
