@@ -3,26 +3,18 @@
 
     const request = require('supertest');
     const app = require('../server/config/express');
-
-    const users = [{
-            "name": "Jubileu",
-            "age": 18
-        },
-        {
-            "name": "Marilene",
-            "age": 45
-        },
-        {
-            "name": "Oscar",
-            "age": 18
-        },
-        {
-            "name": "Jubileu",
-            "age": 19
-        }
-    ];
+    const mongo = require('mongodb');
+    const users = require('./data/users.js');
 
     describe('Listing users on /users', function () {
+
+        beforeEach((done) => {
+            mongo.DB.dropDatabase((err) => {
+                if (err) return done(err);
+                mongo.DB.collection('user')
+                    .insert(users, done);
+            });
+        });
 
         it('Returns 200 status code', function (done) {
             request(app)
@@ -39,7 +31,7 @@
         it('Returns initial users', function (done) {
             request(app)
                 .get('/users')
-                .expect(JSON.stringify(users), done);
+                .expect(JSON.parse(JSON.stringify(users)), done);
         });
     });
 
@@ -55,11 +47,8 @@
         it('Returns complete user', function (done) {
             request(app)
                 .post('/users')
-                .send('name=arnold&age=17')
-                .expect({
-                    "name": "arnold",
-                    "age": "17"
-                }, done);
+                .send(`name=${users[0].name}&age=${users[0].age}`)
+                .expect(/"name":"Jubileu"/, done);
         });
     });
 
@@ -67,23 +56,23 @@
 
         it('Delete user', function (done) {
             request(app)
-                .delete('/users/Oscar')
-                .expect(204, done); 
+                .delete(`/users/${users[0].name}`)
+                .expect(204, done);
         });
     });
 
-    describe('Get user details', function() {
+    describe('Get user details', function () {
 
-        it('Returns HTML format', function(done) {
+        it('Returns HTML format', function (done) {
             request(app)
                 .get('/users/Jubileu')
                 .expect('Content-Type', /html/, done);
         });
 
-        it('Returns user name', function(done) {
+        it('Returns user name', function (done) {
             request(app)
-                .get('/user/Oscar')
-                .expect(/oscar/i, done);
+                .get(`/user/${users[0].name}`)
+                .expect(/Jubileu/i, done);
         });
     });
 })();
