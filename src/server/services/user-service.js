@@ -1,51 +1,48 @@
 (function () {
     'use strict';
 
-    let userService = {};
-
-    const users = [{
-            "name": "Jubileu",
-            "age": 18
-        },
-        {
-            "name": "Marilene",
-            "age": 45
-        },
-        {
-            "name": "Oscar",
-            "age": 18
-        },
-        {
-            "name": "Jubileu",
-            "age": 19
-        }
-    ];
-
     const promise = require('promise');
     const mongo = require('mongodb');
-
-    userService.find = function (name) {
-
+    let userService = {};
+ 
+    userService.find = function () {
         return new Promise((resolve, reject) => {
-
-            mongo.DB.collection('user')                        
+            mongo.DB.collection('user')
                 .find()
                 .toArray()
-                .then((result) => {
-                    resolve(result);
-                }, reject);
+                .then((result) => resolve(result),
+                    reject);
+        });
+    };
+
+    userService.findOne = function (name) {
+        return new Promise((resolve, reject) => {
+            mongo.DB.collection('user')
+                .findOne({
+                    "name": name
+                })
+                .then((result) => resolve(result),
+                    reject);
         });
     };
 
     userService.create = function (user) {
-        users.push(user);
-        return user;
+        return new Promise((resolve, reject) => {
+            mongo.DB.collection('user')
+                .insert(user)
+                .then(() => resolve(user));
+        });
     };
 
     userService.delete = function (name) {
-        let user = userService.find(name);
-        let index = users.indexOf(user);
-        users.splice(index, 1);
+        return new Promise((resolve, reject) => {
+            userService.findOne(name)
+                .then((user) => {
+                    mongo.DB.collection('user')
+                        .remove(user, 1)
+                        .then(() => resolve());
+                });
+        })
     };
 
     module.exports = userService;

@@ -8,7 +8,8 @@ services:
   api:
     image: rafaelbenetti/native-speaker
     volumes:
-      - /home/rafaelbenetti/workspace/native-speaker:/usr/src/app
+      # - /home/rafaelbenetti/workspace/native-speaker:/usr/src/app
+      - C:/Users/rafaelbenetti/workspace/native-speaker:/usr/src/app      
     ports:
       - 3000:3000
     depends_on:

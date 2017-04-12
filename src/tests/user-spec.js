@@ -58,7 +58,7 @@
                 .send('name=arnold&age=17')
                 .expect({
                     "name": "arnold",
-                    "age": 17
+                    "age": "17"
                 }, done);
         });
     });
