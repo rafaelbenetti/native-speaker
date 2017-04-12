@@ -8,6 +8,9 @@
     const userRoutes = require('../routes/user');
     const publicFolder = '../../public';
 
+    const mongoConnection = require('../infra/mongo/connection.js');
+    mongoConnection.connect();
+
     let app = express();
 
     // Cria uma aplicação stática com todo o conteúdo da pasta.

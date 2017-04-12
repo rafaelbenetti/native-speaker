@@ -21,20 +21,20 @@
         }
     ];
 
-    const mongoConnection = require('../infra/mongo/connection.js');
+    const promise = require('promise');
+    const mongo = require('mongodb');
 
     userService.find = function (name) {
-        mongoConnection.connect();
-        // db.collection('user').insert(users[0]);
 
-        // db.collection('user', function (err, collection) {
-        //     collection.find().toArray(function (err, usersFound) {
-        //         itens = usersFound;
-        //         console.log(itens);
-        //     });
-        // });
+        return new Promise((resolve, reject) => {
 
-        return ["itens"];
+            mongo.DB.collection('user')                        
+                .find()
+                .toArray()
+                .then((result) => {
+                    resolve(result);
+                }, reject);
+        });
     };
 
     userService.create = function (user) {
@@ -46,7 +46,7 @@
         let user = userService.find(name);
         let index = users.indexOf(user);
         users.splice(index, 1);
-    }
+    };
 
     module.exports = userService;
 })();

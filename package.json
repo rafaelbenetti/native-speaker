@@ -25,7 +25,8 @@
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-load": "^1.1.15",
-    "mongodb": "^2.2.25"
+    "mongodb": "^2.2.25",
+    "promise": "^7.1.1"
   },
   "devDependencies": {
     "mocha": "^3.2.0",

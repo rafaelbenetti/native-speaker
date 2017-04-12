@@ -5,7 +5,7 @@
 
     let userController = {};
 
-    userController.find = name => userService.find(name);
+    userController.find = function(name) { return userService.find(name) };
     userController.create = user => userService.create(user);
     userController.delete = name => userService.delete(name);
 
