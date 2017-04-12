@@ -7,6 +7,6 @@
 
     http.createServer(app)
         .listen(host.port, () => {
-            console.log(`Node server: ${host.port}`);
-        }); 
+            console.log(`Node server on port: ${host.port}`);
+        });
 })();  
