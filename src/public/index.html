@@ -6,7 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Native Speaker</title>
 </head>
-<body>
+<body ng-app="nativeSpeaker">
+
     <h1>Native Speaker</h1>
+    <div class="main" ng-controller="UserController as userCtrl">
+        <h5>List my first user</h5>
+        <ul>
+            <li ng-repeat="user in userCtrl.users">
+                <label ng-model="user.name">{{user.name}}</label>
+                <label ng-model="user.age">{{user.age}}</label>
+            </li>
+        </ul>
+    </div>    
+
+    <script src="../../angular/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controllers/user-controller.js"></script>
+    <script type="text/javascript" src="services/user-service.js"></script>    
 </body>
 </html>
