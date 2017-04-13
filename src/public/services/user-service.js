@@ -5,10 +5,8 @@
 
     let userService = function ($http) {
         this.find = function () {
-            return new Promise((resolve, reject) => {
-                $http.get('http://localhost:3000/users')
-                    .then(users => resolve(users.data));
-            });
+            return $http.get('http://localhost:3000/users')
+                .then(users => users.data);
         };
     };
 

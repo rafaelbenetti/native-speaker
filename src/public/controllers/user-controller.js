@@ -3,15 +3,15 @@
 
     const app = angular.module('nativeSpeaker');
 
-    var userController = function (userService) {
+    let userController = function (userService) {
 
         var self = this;
-        this.users = [];
+        self.users = [];
         
         userService.find()
-            .then(function (result) {
-                self.users = result;
-            });    
+            .then(function (users) {
+                self.users = users;
+            });
     };
 
     app.controller('UserController', ['userService', userController]);
