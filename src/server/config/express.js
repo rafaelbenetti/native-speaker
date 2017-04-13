@@ -7,6 +7,7 @@
     
     const userRoutes = require('../routes/user');
     const publicFolder = '../../public';
+    const publicFolderScripts = '../../../node_modules';
 
     const mongoConnection = require('../infra/mongo/connection.js');
     mongoConnection.connect();
@@ -15,6 +16,7 @@
 
     // Cria uma aplicação stática com todo o conteúdo da pasta.
     app.use(express.static(path.join(__dirname, publicFolder)));
+    app.use(express.static(path.join(__dirname, publicFolderScripts)));
 
     // Configura o caminho para as view do template ejs.
     app.set('views', path.join(__dirname, '../views'));
