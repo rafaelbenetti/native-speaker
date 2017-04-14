@@ -1,5 +1,6 @@
 (function () {
     'use strict';
 
-    angular.module('nativeSpeaker', []);
+    angular
+        .module('nativeSpeaker', []);
 })();

@@ -5,9 +5,10 @@
     const bodyParser = require('body-parser');
     const path = require('path');
     
-    const userRoutes = require('../routes/user');
     const publicFolder = '../../public';
-    const publicFolderScripts = '../../../node_modules';
+    const publicFolderScripts = '../../../node_modules';    
+    const userRoutes = require('../routes/user');
+    const loginRoutes = require('../routes/login');    
 
     const mongoConnection = require('../infra/mongo/connection.js');
     mongoConnection.connect();
@@ -28,6 +29,7 @@
     app.use(bodyParser.json());
 
     app.use('/users', userRoutes);    
+    app.use('/login', loginRoutes);
     
     module.exports = app;
 })();

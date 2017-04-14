@@ -1,14 +1,15 @@
 (function () {
     'use strict';
 
-    const app = angular.module('nativeSpeaker');
+    angular
+        .module('nativeSpeaker')
+        .service('userService', ['$http', 'apiFactory', userService]);
 
-    let userService = function ($http) {
+    function userService($http, apiFactory) {
+
         this.find = function () {
-            return $http.get('http://localhost:3000/users')
+            return $http.get(apiFactory.getUsersUrl())
                 .then(users => users.data);
         };
     };
-
-    app.service('userService', ['$http', userService]);
 })();

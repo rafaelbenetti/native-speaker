@@ -1,18 +1,19 @@
 (function () {
     'use string';
 
-    const app = angular.module('nativeSpeaker');
+    angular
+        .module('nativeSpeaker')
+        .controller('UserController', ['userService', UserController]);
 
-    let userController = function (userService) {
+    function UserController(userService) {
 
         var self = this;
         self.users = [];
-        
+
         userService.find()
             .then(function (users) {
                 self.users = users;
             });
     };
 
-    app.controller('UserController', ['userService', userController]);
 })();

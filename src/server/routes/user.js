@@ -30,6 +30,6 @@
             .delete(req.params.name)
             .then(() => res.sendStatus(204));
         });
-
+    
     module.exports = router;
 })();
