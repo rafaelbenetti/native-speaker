@@ -2,12 +2,12 @@
     'use strict';
 
     const express = require('express');
-
     let router = express.Router();
+
     router.route('/')
         .get((req, res) => {
-            res.render('login.html');
+            res.render('account.html');
         });
-
+    
     module.exports = router;
 })();

@@ -8,7 +8,7 @@
     const publicFolder = '../../public';
     const publicFolderScripts = '../../../bower_components';    
     const userRoutes = require('../routes/user');
-    const loginRoutes = require('../routes/login');    
+    const accountRoutes = require('../routes/account');    
 
     const mongoConnection = require('../infra/mongo/connection.js');
     mongoConnection.connect();
@@ -20,7 +20,6 @@
     app.use(express.static(path.join(__dirname, publicFolderScripts)));
 
     // Configura o caminho para as view do template ejs.
-    app.set('views', path.join(__dirname, '../views'));
     app.set('views', path.join(__dirname, '../../public'));
     app.engine('html', require('ejs').renderFile);
 
@@ -31,7 +30,7 @@
     app.use(bodyParser.json());
 
     app.use('/users', userRoutes);    
-    app.use('/login', loginRoutes);
+    app.use('/account', accountRoutes);
     
     module.exports = app;
 })();
