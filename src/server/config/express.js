@@ -6,7 +6,7 @@
     const path = require('path');
     
     const publicFolder = '../../public';
-    const publicFolderScripts = '../../../node_modules';    
+    const publicFolderScripts = '../../../bower_components';    
     const userRoutes = require('../routes/user');
     const loginRoutes = require('../routes/login');    
 
@@ -21,6 +21,8 @@
 
     // Configura o caminho para as view do template ejs.
     app.set('views', path.join(__dirname, '../views'));
+    app.set('views', path.join(__dirname, '../../public'));
+    app.engine('html', require('ejs').renderFile);
 
     // Convert o retorno para json, basicamente.
     app.use(bodyParser.urlencoded({extended: false}));

@@ -6,7 +6,7 @@
     let router = express.Router();
     router.route('/')
         .get((req, res) => {
-            res.render('user-create.ejs');
+            res.render('login.html');
         });
 
     module.exports = router;

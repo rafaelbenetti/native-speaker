@@ -36,8 +36,11 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# Node node_modules
+# Node node_git modules
 node_modules
 
 # Bower components
 bower_components
+
+# Assets
+src/public/assets

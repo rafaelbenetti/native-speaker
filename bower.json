@@ -1,0 +1,17 @@
+{
+  "name": "native-speaker",
+  "description": "Project to connect natives with people who wants to leran a new language.",
+  "main": "index.js",
+  "authors": [
+    "Rafael de Oliveira Benetti"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "english;native;chat;learn"
+  ],
+  "homepage": "https://github.com/rafaelbenetti/native-speaker",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4"
+  }
+}
