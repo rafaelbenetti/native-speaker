@@ -6,13 +6,12 @@
         .controller('UserController', ['userService', UserController]);
 
     function UserController(userService) {
-
-        var self = this;
-        self.users = [];
+        let controller = this;
+        controller.users = [];
 
         userService.find()
             .then(function (users) {
-                self.users = users;
+                controller.users = users;
             });
     };
 

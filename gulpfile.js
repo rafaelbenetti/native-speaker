@@ -28,9 +28,9 @@ gulp.task('style', () => {
         .pipe(gulp.dest(publicFolder + 'assets/css'));
 });
 
-gulp.task('style-login', () => {
+gulp.task('style-account', () => {
     return gulp
-        .src(publicFolder + 'scss/login/*.scss')
+        .src(publicFolder + 'scss/account/*.scss')
         .pipe(concat('style-login.css'))
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer]))
@@ -43,8 +43,8 @@ gulp.task('style-login', () => {
 
 gulp.task('watch', () => {
     gulp.watch([publicFolder + 'scss/*.scss',
-        publicFolder + 'scss/login/*.scss'
-    ], ['style', 'style-login']);
+        publicFolder + 'scss/account/*.scss'
+    ], ['style', 'style-account']);
 });
 
-gulp.task('default', ['delete', 'style', 'style-login', 'watch']);
+gulp.task('default', ['delete', 'style', 'style-account', 'watch']);
