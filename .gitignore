@@ -44,3 +44,6 @@ bower_components
 
 # Assets
 src/public/assets
+
+# Vs code
+.vscode

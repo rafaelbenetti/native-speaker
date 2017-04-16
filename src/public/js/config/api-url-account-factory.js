@@ -13,8 +13,13 @@
             return `${urlBase}/users`;
         };
 
+        var getAccountUrl = function () {
+            return `${urlBase}/account`;
+        };
+
         return {
-            getUsersUrl: getUsersUrl
+            getUsersUrl: getUsersUrl,
+            getAccountUrl: getAccountUrl
         };
     };
 })();

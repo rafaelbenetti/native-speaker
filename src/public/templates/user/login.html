@@ -1,8 +1,9 @@
-<div>
-    <h3 class="title">Welcome to Native Speaker</h3>
-    <input type="email" placeholder="E-mail" required>
-    <input type="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-    <label>Need an account?</label>
-    <a ng-href="/account#!/signup">Sign up</a>
-</div>
+<form name="loginForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.login(accountCtrl.account)"
+  novalidate>
+  <h3 class="title">Welcome to Native Speaker</h3>
+  <input ng-model="accountCtrl.account.email" type="email" placeholder="E-mail" required>
+  <input ng-model="accountCtrl.account.password" type="password" placeholder="Password" required>
+  <button type="submit" ng-disabled="loginForm.$invalid">Login</button>
+  <label>Need an account?</label>
+  <a ng-href="/account#!/signup">Sign up</a>
+</form>

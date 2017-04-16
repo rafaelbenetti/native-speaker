@@ -1,7 +1,5 @@
-<form name="accountForm" 
-      ng-controller="AccountController as accountCtrl" 
-      ng-submit="accountCtrl.create(accountCtrl.account)" 
-      novalidate>
+<form name="accountForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.create(accountCtrl.account)"
+    novalidate>
     <h3 class="title">Create your account for free now!</h3>
     <input ng-model="accountCtrl.account.name" type="text" placeholder="Name" required>
     <input ng-model="accountCtrl.account.email" type="email" placeholder="E-mail" required>

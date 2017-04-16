@@ -16,5 +16,14 @@
                 })
                 .then(result => result.data);
         };
+
+        service.login = function(account) {
+            return $http({
+                method: 'POST',
+                url: apiFactory.getAccountUrl(),
+                data: account
+            })
+            .then(result => result.data);
+        };
     };
 })();
