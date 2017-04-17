@@ -16,12 +16,10 @@
         });
     };
 
-    userService.findOne = function (name) {
+    userService.findOne = function (user) {
         return new Promise((resolve, reject) => {
             mongo.DB.collection(COLLECTION)
-                .findOne({
-                    "name": name
-                }, {
+                .findOne(user, {
                     "_id": false
                 })
                 .then((result) => resolve(result),
