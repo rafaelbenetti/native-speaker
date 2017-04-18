@@ -7,7 +7,7 @@
         if (req.isAuthenticated()) {
             return next();
         }
-        res.redirect('/account');
+        res.sendStatus(403);
     };
 
     module.exports = middleware;

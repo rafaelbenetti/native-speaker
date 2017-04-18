@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('nativeSpeaker', []);
+        .module('nativeSpeaker', ['ngRoute']);        
 })();

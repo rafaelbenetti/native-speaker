@@ -8,34 +8,36 @@
 
     let router = express.Router();
 
-    router.post((req, res) => { 
-            userController
+    router.route('/').post((req, res) => {
+        userController
             .create(req.body)
             .then((user) => res.status(201).json(user),
-                  () => res.status(400).json('Ocorreu um erro ao salvar o usuário'));           
-        });
+                () => res.status(400).json('Ocorreu um erro ao salvar o usuário'));
+    });
 
     router.use(auth.authenticate);
 
     router.route('/')
         .get((req, res) => {
             userController
-            .find()
-            .then((users) => res.json(users));
-        });        
+                .find()
+                .then((users) => res.json(users));
+        });
 
-    router.route('/:name') 
+    router.route('/:name')
         .get((req, res) => {
             userController
-            .findOne(req.params.name)
-            .then((user) => res.render('user-detail.ejs', { user: user }),
-                  () => res.json('User not found!'));
+                .findOne(req.params.name)
+                .then((user) => res.render('user-detail.ejs', {
+                        user: user
+                    }),
+                    () => res.json('User not found!'));
         })
         .delete((req, res) => {
             userController
-            .delete(req.params.name)
-            .then(() => res.sendStatus(204));
+                .delete(req.params.name)
+                .then(() => res.sendStatus(204));
         });
-    
+
     module.exports = router;
 })();

@@ -9,7 +9,10 @@
         let service = this;
 
         service.find = function () {
-            return $http.get(apiFactory.getUsersUrl())
+            return $http({
+                    method: 'GET',
+                    url: apiFactory.getUsersUrl()
+                })
                 .then(users => users.data);
         };
     };

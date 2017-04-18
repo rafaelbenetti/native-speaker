@@ -3,24 +3,28 @@
 
     angular
         .module('nativeSpeakerAccount')
-        .controller('AccountController', ['$location', 'accountService', AccountController]);
+        .controller('AccountController', ['accountService', AccountController]);
 
-    function AccountController($location, accountService) {
+    const HOME_URL = 'http://localhost:3000/';
+
+    function AccountController(accountService) {
         let controller = this;
         controller.account = {};
 
         controller.create = function (account) {
             accountService.create(account)
                 .then(function (result) {
-                    $location.path('/');
+                    window.location.href = HOME_URL;
                 });
         };
 
         controller.login = function (account) {
             accountService.login(account)
                 .then(function (result) {
-                    $location.path('/');
+                    window.location.href = HOME_URL;
                 });
         };
+
+
     };
 })();
