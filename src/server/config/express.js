@@ -5,6 +5,8 @@
     const bodyParser = require('body-parser');
     const path = require('path');
     const passport = require('passport');
+    const session = require('express-session');
+    const RedisStore = require('connect-redis')(session);
     
     const publicFolder = '../../public';
     const publicFolderScripts = '../../../bower_components';
@@ -17,10 +19,13 @@
 
     // TODO: Create a secret key on node environment...
     // Starts de session after login...    
-    app.use(require('express-session')({
-        secret: 'keyboard cat',
-        resave: true,
-        saveUninitialized: true
+    app.use(session({
+        store: new RedisStore({ 
+            url: '//cache:6379'
+        }),
+        secret: 'keyboard cat', 
+        resave: false,
+        saveUninitialized: false 
     }));
     app.use(passport.initialize());
     app.use(passport.session());
