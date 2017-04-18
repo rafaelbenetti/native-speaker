@@ -16,4 +16,4 @@ services:
       - db
     environment:
       - NODE_ENV=dev
-    command: npm start
+    command: npm start & gulp
