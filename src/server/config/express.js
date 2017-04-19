@@ -17,13 +17,12 @@
 
     let app = express();
 
-    // TODO: Create a secret key on node environment...
-    // Starts de session after login...    
+    // Configure session on redisStore.
     app.use(session({
         store: new RedisStore({ 
             url: '//cache:6379'
         }),
-        secret: 'keyboard cat', 
+        secret: process.env.SESSION_SECRET_KEY, 
         resave: false,
         saveUninitialized: false 
     }));

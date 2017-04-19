@@ -3,7 +3,7 @@
 
     const mongo = require('mongodb');
     const mongoClient = mongo.MongoClient;
-    const mongoConfig = require('../../config/mongo-config.js');
+    const mongoConfig = require('../../config/mongo-config');
     const url = `${mongoConfig.address}:${mongoConfig.port}/${mongoConfig.database}`;
 
     let mongodb = function () {
