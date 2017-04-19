@@ -1,17 +1,19 @@
 <form name="loginForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.login(accountCtrl.account)"
   novalidate>
-  <div class="header">
-    <h3 class="title">Welcome to NSpeaker</h3>
+  <div class="header-form">
+    <h1>Welcome to NSpeaker</h1>
   </div>
-  <div class="input-group">
-    <label ng-class="{'go-up':accountCtrl.account.email.length}">E-mail {{accountCtrl.account.email.$touched}}</label>
-    <input name="email" ng-model="accountCtrl.account.email" type="text" required>
+  <div class="content-form">
+    <div class="input-group">      
+      <input class="input" ng-model="accountCtrl.account.email" type="email" required>
+      <label ng-class="{'label-up':accountCtrl.account.email.length}" class="input-label">E-mail</label>
+    </div>
+    <div class="input-group">      
+      <input class="input" ng-model="accountCtrl.account.password" type="password" required>
+      <label class="input-label">Password</label>
+    </div>
+    <button class="button" type="submit" ng-disabled="loginForm.$invalid">Login</button>
+    <label class="label">Need an account?</label>
+    <a class="link" ng-href="/account#!/signup">Sign up</a>
   </div>
-  <div class="input-group">
-    <label ng-class="{'go-up':accountCtrl.account.password.length}">Password</label>
-    <input ng-model="accountCtrl.account.password" type="password" required>
-  </div>
-  <button type="submit" ng-disabled="loginForm.$invalid">Login</button>
-  <label>Need an account?</label>
-  <a ng-href="/account#!/signup">Sign up</a>
 </form>

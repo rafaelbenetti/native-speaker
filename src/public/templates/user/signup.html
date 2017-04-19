@@ -1,34 +1,44 @@
-<form name="accountForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.create(accountCtrl.account)"
+<form name="loginForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.login(accountCtrl.account)"
     novalidate>
-    <div class="header">
-        <h3 class="title">Starts now on NSpeaker!</h3>
+    <div class="header-form">
+        <h1>Starts now on NSpeaker!</h1>
     </div>
-    <div class="input-group">
-        <label ng-class="{'go-up':accountCtrl.account.name.length}">Name</label>
-        <input ng-model="accountCtrl.account.name" type="text" required>
+    <div class="content-form">
+        <div class="input-group">
+            <input class="input" ng-model="accountCtrl.account.name" type="text" required>
+            <label ng-class="{'label-up':accountCtrl.account.name.length}" class="input-label">Name</label>
+        </div>
+
+        <div class="input-group">
+            <select class="select" ng-model="accountCtrl.account.nativeLanguage">
+                <option value=""></option>
+                <option value="BR">Português</option>
+                <option value="US">English</option>
+            </select>
+            <label ng-class="{'label-up':accountCtrl.account.nativeLanguage.length}" class="input-label">Native Language</label>
+        </div>
+
+        <div class="input-group">
+            <select class="select" ng-model="accountCtrl.account.learningLanguage">
+                <option value=""></option>
+                <option value="BR">Português</option>
+                <option value="US">English</option>
+            </select>
+            <label ng-class="{'label-up':accountCtrl.account.learningLanguage.length}" class="input-label">Learning Language</label>
+        </div>
+
+        <div class="input-group">
+            <input class="input" ng-model="accountCtrl.account.email" type="email" required>
+            <label ng-class="{'label-up':accountCtrl.account.email.length}" class="input-label">E-mail</label>
+        </div>
+
+        <div class="input-group">
+            <input class="input" ng-model="accountCtrl.account.password" type="password" required>
+            <label class="input-label" ng-class="{'go-up':accountCtrl.account.password.length}">Password</label>
+        </div>
+
+        <button class="button" type="submit" ng-disabled="accountForm.$invalid">Sign up</button>
+        <label class="label">Already have an account?</label>
+        <a class="link" ng-href="/account#!/login">Login</a>
     </div>
-    <div class="input-group">
-        <label ng-class="{'go-up':accountCtrl.account.email.length}">E-mail</label>
-        <input ng-model="accountCtrl.account.email" type="text" required>
-    </div>
-    <div class="input-group">
-        <label ng-class="{'go-up':accountCtrl.account.nativeLanguage.length}">Native Language</label>
-        <select ng-model="accountCtrl.account.nativeLanguage">
-            <option value=""></option>
-            <option value="BR">Português</option>
-            <option value="US">English</option>
-        </select>
-    </div>
-    <select ng-model="accountCtrl.account.learningLanguage">
-        <option value="">Learning Language</option>
-        <option value="BR">Português</option>
-        <option value="US">English</option>
-    </select>
-    <div class="input-group">
-        <label ng-class="{'go-up':accountCtrl.account.password.length}">Password</label>
-        <input ng-model="accountCtrl.account.password" type="password" required>
-    </div>
-    <button type="submit" ng-disabled="accountForm.$invalid">Sign up</button>
-    <label>Already have an account?</label>
-    <a ng-href="/account#!/login">Login</a>
 </form>

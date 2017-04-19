@@ -1,12 +1,21 @@
-$primary-color: #03c9a9;
-$second-color: #017361;
-$third-color: #d0c9c9;
+$primary-color: #017361;
+$second-color: #a5a5a5;
+$third-color: #fff;
+
+$border-color: #d0c9c9;
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    text-align: center;        
+    color: $second-color;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;            
 } 
+
+h1 {
+    margin: 0;
+}
