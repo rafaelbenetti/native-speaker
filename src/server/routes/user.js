@@ -12,7 +12,7 @@
         userController
             .create(req.body)
             .then((user) => res.status(201).json(user),
-                () => res.status(400).json('Ocorreu um erro ao salvar o usuário'));
+                () => res.status(400).json('Ocorreu um erro ao salvar o usuário.'));
     });
 
     router.use(auth.authenticate);
@@ -22,21 +22,6 @@
             userController
                 .find()
                 .then((users) => res.json(users));
-        });
-
-    router.route('/:name')
-        .get((req, res) => {
-            userController
-                .findOne(req.params.name)
-                .then((user) => res.render('user-detail.ejs', {
-                        user: user
-                    }),
-                    () => res.json('User not found!'));
-        })
-        .delete((req, res) => {
-            userController
-                .delete(req.params.name)
-                .then(() => res.sendStatus(204));
         });
 
     module.exports = router;

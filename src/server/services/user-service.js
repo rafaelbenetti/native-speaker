@@ -35,16 +35,5 @@
         });
     };
 
-    userService.delete = function (name) {
-        return new Promise((resolve, reject) => {
-            userService.findOne(name)
-                .then((user) => {
-                    mongo.DB.collection(COLLECTION)
-                        .remove(user, 1)
-                        .then(() => resolve());
-                });
-        })
-    };
-
     module.exports = userService;
 })();

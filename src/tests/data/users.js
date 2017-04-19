@@ -8,6 +8,10 @@
         {
             "name": "Marilene",
             "age": "15"
+        },
+        {
+            "email": "ns@ns.com",
+            "password": "ns"
         }
     ];
 
