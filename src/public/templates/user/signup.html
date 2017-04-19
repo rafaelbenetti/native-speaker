@@ -1,43 +1,51 @@
-<form name="loginForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.login(accountCtrl.account)"
+<form name="accountCtrl.loginForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.loginForm.$valid && accountCtrl.create(accountCtrl.account)"
     novalidate>
     <div class="header-form">
         <h1>Starts now on NSpeaker!</h1>
     </div>
     <div class="content-form">
         <div class="input-group">
-            <input class="input" ng-model="accountCtrl.account.name" type="text" required>
+            <input class="input" ng-model="accountCtrl.account.name" name="name" type="text" required>
             <label ng-class="{'label-up':accountCtrl.account.name.length}" class="input-label">Name</label>
+            <span class="error-label" ng-show="accountCtrl.loginForm.$submitted && accountCtrl.loginForm.name.$error.required">Name is required.</span>
         </div>
 
         <div class="input-group">
-            <select class="select" ng-model="accountCtrl.account.nativeLanguage">
+            <select class="select" ng-model="accountCtrl.account.nativeLanguage" name="nativeLanguage" required>
                 <option value=""></option>
                 <option value="BR">Português</option>
                 <option value="US">English</option>
             </select>
             <label ng-class="{'label-up':accountCtrl.account.nativeLanguage.length}" class="input-label">Native Language</label>
+            <span class="error-label" ng-show="accountCtrl.loginForm.$submitted && accountCtrl.loginForm.nativeLanguage.$error.required">Native Language is required.</span>
         </div>
 
         <div class="input-group">
-            <select class="select" ng-model="accountCtrl.account.learningLanguage">
+            <select class="select" ng-model="accountCtrl.account.learningLanguage" name="learningLanguage" required>
                 <option value=""></option>
                 <option value="BR">Português</option>
                 <option value="US">English</option>
             </select>
             <label ng-class="{'label-up':accountCtrl.account.learningLanguage.length}" class="input-label">Learning Language</label>
+            <span class="error-label" ng-show="accountCtrl.loginForm.$submitted && accountCtrl.loginForm.learningLanguage.$error.required">Learning Language is required.</span>
         </div>
 
         <div class="input-group">
-            <input class="input" ng-model="accountCtrl.account.email" type="email" required>
+            <input class="input" ng-model="accountCtrl.account.email" name="email" type="email" required>
             <label ng-class="{'label-up':accountCtrl.account.email.length}" class="input-label">E-mail</label>
+            <span class="error-label" ng-show="accountCtrl.loginForm.$submitted && accountCtrl.loginForm.email.$error.required">E-mail is required.</span>
+            <span class="error-label" ng-show="accountCtrl.loginForm.$submitted && accountCtrl.loginForm.email.$error.email">Invalid E-mail address.</span>
         </div>
 
         <div class="input-group">
-            <input class="input" ng-model="accountCtrl.account.password" type="password" required>
+            <input class="input" ng-model="accountCtrl.account.password" name="password" type="password" required>
             <label class="input-label" ng-class="{'go-up':accountCtrl.account.password.length}">Password</label>
+            <span class="error-label" ng-show="accountCtrl.loginForm.$submitted && accountCtrl.loginForm.password.$error.required">Password is required.</span>
         </div>
 
-        <button class="button" type="submit" ng-disabled="accountForm.$invalid">Sign up</button>
+        <p class="error-message" ng-show="accountCtrl.errorMessage">{{accountCtrl.errorMessage}}</p>
+
+        <button class="button" type="submit">Sign up</button>
         <label class="label">Already have an account?</label>
         <a class="link" ng-href="/account#!/login">Login</a>
     </div>

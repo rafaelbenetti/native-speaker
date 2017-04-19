@@ -2,8 +2,8 @@
     <h5>List my first user</h5>
     <ul>
         <li ng-repeat="user in userCtrl.users">
-            <label ng-model="user.name">{{user.name}}</label>
-            <label ng-model="user.age">{{user.age}}</label>
+            <label ng-model="user.name"><strong>Name: </strong>{{user.name}}</label>
+            <label ng-model="user.email"><strong>E-mail: </strong>{{user.email}}</label>
         </li>
     </ul>
-</div>
+</div>  

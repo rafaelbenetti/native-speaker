@@ -31,7 +31,7 @@
         return new Promise((resolve, reject) => {
             mongo.DB.collection(COLLECTION)
                 .insert(user)
-                .then(() => resolve(user));
+                .then(() => reject(user));
         });
     };
 

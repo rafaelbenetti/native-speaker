@@ -12,7 +12,7 @@
         userController
             .create(req.body)
             .then((user) => res.status(201).json(user),
-                () => res.status(400).json('Ocorreu um erro ao salvar o usuário.'));
+                () => res.status(400).json('Sorry! We had a problem to create your account.'));
     });
 
     router.use(auth.authenticate);

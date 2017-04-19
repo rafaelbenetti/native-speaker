@@ -8,8 +8,8 @@
     function findUser(email, cb) {
         userService.findOne({
             email: email
-        }).then(function (user) {
-            if (user) {
+        }).then(function (user) {           
+            if (user) {                
                 return cb(null, user)
             }
             return cb(null)

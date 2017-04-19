@@ -63,6 +63,7 @@
         font-weight: 600;
         height: 50px;
         margin: 10px 0 10px 0;
+        outline: none;
         transition: all 0.5s;
         width: 100%;
         &:hover {
@@ -83,6 +84,22 @@
             transform: scale(1.1);
             display: inline-block;
         }
+    }
+    .error-label {
+        color: $error-color;
+        display: block;
+        font-size: 90%;
+        top: -40px;
+        position: relative;        
+    }
+    .error-message {
+        color: $third-color;
+        background: $error-color;
+        border-radius: 5px;
+        display: inline-block;        
+        margin-top: -10px;
+        padding: 10px;  
+        width: 100%;     
     }
 }
 

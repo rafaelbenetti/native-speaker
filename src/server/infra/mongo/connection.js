@@ -14,7 +14,7 @@
             if (err) {
                 console.log(err);
             } else {
-                console.log('Connected on database with success.');
+                console.log(`Connected on database with success at ${url}`);
                 mongo.DB = db;
             }
         });

@@ -1,18 +1,24 @@
-<form name="loginForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.login(accountCtrl.account)"
+<form name="accountCtrl.loginForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.loginForm.$valid && accountCtrl.login(accountCtrl.account)"
   novalidate>
   <div class="header-form">
     <h1>Welcome to NSpeaker</h1>
   </div>
   <div class="content-form">
-    <div class="input-group">      
-      <input class="input" ng-model="accountCtrl.account.email" type="email" required>
+    <div class="input-group">
+      <input class="input" ng-model="accountCtrl.account.email" name="email" type="email" required>
       <label ng-class="{'label-up':accountCtrl.account.email.length}" class="input-label">E-mail</label>
+      <span class="error-label" ng-show="accountCtrl.loginForm.$submitted && accountCtrl.loginForm.email.$error.required">E-mail is required.</span>
+      <span class="error-label" ng-show="accountCtrl.loginForm.$submitted && accountCtrl.loginForm.email.$error.email">Invalid E-mail address.</span>
     </div>
-    <div class="input-group">      
-      <input class="input" ng-model="accountCtrl.account.password" type="password" required>
+    <div class="input-group">
+      <input class="input" ng-model="accountCtrl.account.password" name="password" type="password" required>
       <label class="input-label">Password</label>
+      <span class="error-label" ng-show="accountCtrl.loginForm.$submitted && accountCtrl.loginForm.password.$error.required">Password is required.</span>
     </div>
-    <button class="button" type="submit" ng-disabled="loginForm.$invalid">Login</button>
+    <p class="error-message" ng-show="!(accountCtrl.loginForm.email.$dirty || accountCtrl.loginForm.password.$dirty) && accountCtrl.errorOnLogin">
+      Sorry! We found a problem with your access. Please check your E-mail or Password.
+    </p>
+    <button class="button" type="submit">Login</button>
     <label class="label">Need an account?</label>
     <a class="link" ng-href="/account#!/signup">Sign up</a>
   </div>
