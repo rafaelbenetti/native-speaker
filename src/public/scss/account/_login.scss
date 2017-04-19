@@ -1,5 +1,5 @@
 .content-box {
-    border: 1px solid $border-color;
+    background: $third-color;
     border-radius: 3px;
     display: inline-block;
     left: 50%;
@@ -11,7 +11,7 @@
 }
 
 .header-form {
-    background: $primary-color;
+    background: $primary-color; 
     color: $third-color;
     margin-bottom: 40px;
     padding: 30px;

@@ -12,7 +12,7 @@
         userController
             .create(req.body)
             .then((user) => res.status(201).json(user),
-                () => res.status(400).json('Sorry! We had a problem to create your account.'));
+                (result) => res.status(400).json(result));
     });
 
     router.use(auth.authenticate);

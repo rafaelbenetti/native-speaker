@@ -29,9 +29,20 @@
 
     userService.create = function (user) {
         return new Promise((resolve, reject) => {
-            mongo.DB.collection(COLLECTION)
-                .insert(user)
-                .then(() => reject(user));
+            userService
+                .findOne({
+                    email: user.email
+                })
+                .then((found) => {
+                    if (found)
+                        reject('This E-mail is already used in our system.');
+                    else {
+                        mongo.DB.collection(COLLECTION)
+                            .insert(user)
+                            .then(() => resolve(user),
+                                reject);
+                    }
+                });
         });
     };
 
