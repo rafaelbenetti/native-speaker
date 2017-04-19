@@ -1,0 +1,56 @@
+$primary-color: #017361;
+$second-color: #a5a5a5;
+$third-color: #fff;
+
+* {
+    box-sizing: border-box;
+}
+
+body {    
+    color: $second-color;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    margin: 0px;  
+}
+
+.header {
+    background: $primary-color;
+    padding: 20px;
+}
+
+.search-group {
+    display: inline-block;
+    max-width: 700px;
+    width: 90%;    
+}
+.search-input {
+    border: none;
+    border-radius: 5px;
+    color: $second-color;
+    font-size: 100%;
+    height: 40px;    
+    padding-left: 10px;
+    outline: none;   
+    float: left;
+    width: 80%;    
+}
+
+.footer {
+    background: $primary-color;   
+    bottom: 0;  
+    color: $third-color;  
+    position: fixed;    
+    width: 100%; 
+    .copyright {
+        margin: 5px;
+        font-size: 90%;
+    }   
+}
+
+@media screen and (min-width: 700px) {
+    .search-input {
+        width: 90%;
+    }
+}
+

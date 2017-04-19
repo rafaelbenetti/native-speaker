@@ -10,7 +10,7 @@ $error-color: #a14949;
 }
 
 body {
-    background: linear-gradient(to left, #67b26f, #4ca2cd);
+    background: linear-gradient(to left, $primary-color, #4ca2cd);
     color: $second-color;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-size: 16px;

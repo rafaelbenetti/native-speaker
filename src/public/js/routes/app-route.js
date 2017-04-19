@@ -8,7 +8,7 @@
     function router($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'templates/user/users.html'
+                templateUrl: 'templates/home/index.html'
             })
             .otherwise({
                 redirectTo: '/'
