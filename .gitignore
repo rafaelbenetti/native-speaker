@@ -43,7 +43,7 @@ node_modules
 bower_components
 
 # Assets
-src/public/assets
+src/public/assets/css
 
 # Vs code
 .vscode
