@@ -1,19 +1,33 @@
 <form name="accountForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.create(accountCtrl.account)"
     novalidate>
-    <h3 class="title">Create your account for free now!</h3>
-    <input ng-model="accountCtrl.account.name" type="text" placeholder="Name" required>
-    <input ng-model="accountCtrl.account.email" type="email" placeholder="E-mail" required>
-    <select ng-model="accountCtrl.account.nativeLanguage">
-        <option value="">Native Language</option>
-        <option value="BR">Português</option>
-        <option value="US">English</option>
-    </select>
+    <div class="header">
+        <h3 class="title">Starts now on NSpeaker!</h3>
+    </div>
+    <div class="input-group">
+        <label ng-class="{'go-up':accountCtrl.account.name.length}">Name</label>
+        <input ng-model="accountCtrl.account.name" type="text" required>
+    </div>
+    <div class="input-group">
+        <label ng-class="{'go-up':accountCtrl.account.email.length}">E-mail</label>
+        <input ng-model="accountCtrl.account.email" type="text" required>
+    </div>
+    <div class="input-group">
+        <label ng-class="{'go-up':accountCtrl.account.nativeLanguage.length}">Native Language</label>
+        <select ng-model="accountCtrl.account.nativeLanguage">
+            <option value=""></option>
+            <option value="BR">Português</option>
+            <option value="US">English</option>
+        </select>
+    </div>
     <select ng-model="accountCtrl.account.learningLanguage">
         <option value="">Learning Language</option>
         <option value="BR">Português</option>
         <option value="US">English</option>
     </select>
-    <input ng-model="accountCtrl.account.password" type="password" placeholder="Password" required>
+    <div class="input-group">
+        <label ng-class="{'go-up':accountCtrl.account.password.length}">Password</label>
+        <input ng-model="accountCtrl.account.password" type="password" required>
+    </div>
     <button type="submit" ng-disabled="accountForm.$invalid">Sign up</button>
     <label>Already have an account?</label>
     <a ng-href="/account#!/login">Login</a>

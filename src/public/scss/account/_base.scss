@@ -1,12 +1,12 @@
 $primary-color: #03c9a9;
 $second-color: #017361;
+$third-color: #d0c9c9;
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    text-align: center;    
-    background: linear-gradient(90deg, $second-color, $primary-color);
+    text-align: center;        
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
 } 

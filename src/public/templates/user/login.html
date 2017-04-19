@@ -1,8 +1,16 @@
 <form name="loginForm" ng-controller="AccountController as accountCtrl" ng-submit="accountCtrl.login(accountCtrl.account)"
   novalidate>
-  <h3 class="title">Welcome to Native Speaker</h3>
-  <input ng-model="accountCtrl.account.email" type="email" placeholder="E-mail" required>
-  <input ng-model="accountCtrl.account.password" type="password" placeholder="Password" required>
+  <div class="header">
+    <h3 class="title">Welcome to NSpeaker</h3>
+  </div>
+  <div class="input-group">
+    <label ng-class="{'go-up':accountCtrl.account.email.length}">E-mail {{accountCtrl.account.email.$touched}}</label>
+    <input name="email" ng-model="accountCtrl.account.email" type="text" required>
+  </div>
+  <div class="input-group">
+    <label ng-class="{'go-up':accountCtrl.account.password.length}">Password</label>
+    <input ng-model="accountCtrl.account.password" type="password" required>
+  </div>
   <button type="submit" ng-disabled="loginForm.$invalid">Login</button>
   <label>Need an account?</label>
   <a ng-href="/account#!/signup">Sign up</a>
