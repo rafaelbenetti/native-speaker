@@ -4,7 +4,7 @@
   "description": "Project to connect natives with people who wants to leran a new language.",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && bower install --allow-root && nodemon -L index.js",
+    "start": "npm install && nodemon -L index.js",
     "test": "mocha src/tests/ --watch"
   },
   "repository": {

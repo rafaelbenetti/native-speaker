@@ -1,0 +1,49 @@
+.user-group {
+    border: 1px solid #efdddd;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    width: 90%;
+}
+
+.user-status {
+    background: #017361;
+    border-radius: 50%;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+.user-name {
+    position: relative;
+    bottom: 4px;
+    font-weight: 600;
+    color: #717171;
+}
+.user-star::after {
+    font-size: 200%;
+    content: '★ ';
+}
+.user-star.yellow {
+    color: #ffc700;;
+}
+
+@media screen and (min-width: 768px) {
+    .user-img {
+        float: left;
+    }
+    .user-group {
+        text-align: left;
+        .user-star {
+            float: right;
+            position: relative;
+            bottom: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .user-group {
+        width: 40%;
+    }
+}

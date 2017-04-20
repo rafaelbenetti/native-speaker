@@ -1,11 +1,14 @@
-<div ng-controller="UserController as userCtrl">
-    <div ng-repeat="user in userCtrl.users">
-        <img ng-src="assets/img/user.png">
-        <div>
-            <span>{{user.name}}</span>
-            <p>
-                Mussum Ipsum, cacilds vidis litro abertis. Cevadis im ampola pa arma uma pindureta. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.
-            </p>
-        </div>        
+<div class="user-group" ng-repeat="user in homeCtrl.users">
+    <img class="user-img" ng-src="assets/img/user.png">
+    <div>
+        <div class="user-header">
+            <span class="user-status"></span>
+            <span class="user-name">{{user.name}}</span>
+            <span class="user-star yellow" ng-repeat="star in [1,2,3,4,5]"></span>
+        </div>
+        <p class="user-description">
+            Mussum Ipsum, cacilds vidis litro abertis. Cevadis im ampola pa arma uma pindureta. Suco de cevadiss, é um leite divinis,
+            qui tem lupuliz, matis, aguis e fermentis.
+        </p>
     </div>
-</div>  
+</div>
