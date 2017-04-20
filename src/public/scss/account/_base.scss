@@ -20,3 +20,8 @@ body {
 h1 {
     margin: 0;
 }
+
+.error-label-small.ng-hide:not(.ng-hide-animate) {
+    visibility: hidden !important;
+    display: block !important;
+}

@@ -2,16 +2,13 @@
     background: $third-color;
     border-radius: 3px;
     display: inline-block;
-    left: 50%;
-    max-width: 500px;
-    position: fixed;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin: 40px 0 40px 0;
+    max-width: 600px;    
     width: 90%;
 }
 
 .header-form {
-    background: $primary-color; 
+    background: $primary-color;
     color: $third-color;
     margin-bottom: 40px;
     padding: 30px;
@@ -23,7 +20,8 @@
     padding-bottom: 30px;
     .input-group {
         text-align: left;
-        .input, 
+        min-height: 82px;
+        .input,
         .select {
             border: 1px solid $border-color;
             border-radius: 3px;
@@ -31,7 +29,7 @@
             display: inline-block;
             font-size: 100%;
             height: 50px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             outline: none;
             padding-left: 10px;
             width: 100%;
@@ -39,20 +37,20 @@
         .input-label {
             display: inline-block;
             pointer-events: none;
-            transform: translate(10px, -57px);
+            transform: translate(10px, -47px);
             transition: all .5s;
         }
     }
     .input:focus+.input-label,
-    .input.ng-not-empty+.input-label {
-        color: $primary-color;
-        font-weight: 600;
-        transform: translateY(-95px) scale(.8);
-    }
+    .input.ng-not-empty+.input-label,
     .select.ng-not-empty+.input-label {
         color: $primary-color;
         font-weight: 600;
-        transform: translate(-10px, -95px) scale(.8);
+        transform: translate(0, -85px) scale(.8);
+    }   
+    .input-group.input-group-small {
+        width: 42%;
+        display: inline-block;
     }
     .button {
         background: $third-color;
@@ -85,21 +83,40 @@
             display: inline-block;
         }
     }
-    .error-label {
+    .error-label,
+    .error-label-small {
         color: $error-color;
         display: block;
         font-size: 90%;
-        top: -40px;
-        position: relative;        
+        top: -30px;
+        position: relative;
     }
     .error-message {
         color: $third-color;
         background: $error-color;
         border-radius: 5px;
-        display: inline-block;        
+        display: inline-block;
         margin-top: -10px;
-        padding: 10px;  
-        width: 100%;     
+        padding: 10px;
+        width: 100%;
+    }
+
+    .languages {
+        text-align: left;
+    }
+    .languages-add-img,
+    .languages-remove-img {
+        cursor: pointer;
+        width: 50px;                
+    }
+    .languages-remove-img {
+        float: right;
+    }
+    .languages-label {
+        display: inline-block;
+        margin-left: 10px;
+        margin-top: 15px;        
+        position: absolute;                
     }
 }
 

@@ -9,7 +9,9 @@
 
     function AccountController($location, accountService) {
         let controller = this;
-        controller.account = {};
+        controller.account = {
+            languages: []
+        };
 
         controller.create = function (account) {
             accountService.create(account)
@@ -29,6 +31,9 @@
                     });
         };
 
-
+        controller.addLanguage = () => controller.account.languages.push({});
+        controller.removeLanguage = (index) => {
+            controller.account.languages.splice(index, 1);
+        };
     };
 })();
