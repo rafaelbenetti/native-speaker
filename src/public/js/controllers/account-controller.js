@@ -5,7 +5,7 @@
         .module('nativeSpeakerAccount')
         .controller('AccountController', ['$location', 'accountService', AccountController]);
 
-    const HOME_URL = 'http://localhost:3000/';
+    const HOME_URL = location.origin;
 
     function AccountController($location, accountService) {
         let controller = this;

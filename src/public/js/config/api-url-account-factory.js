@@ -5,9 +5,9 @@
         .module('nativeSpeakerAccount')
         .factory('apiFactory', apiFactory);
 
-    function apiFactory() {
+    function apiFactory() { 
 
-        const urlBase = 'http://localhost:3000';
+        const urlBase = location.origin;
 
         var getUsersUrl = function () {
             return `${urlBase}/users`;

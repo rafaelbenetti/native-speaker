@@ -7,7 +7,7 @@
     const passport = require('passport');
     const session = require('express-session');
     const RedisStore = require('connect-redis')(session);
-    
+
     const publicFolder = '../../public';
     const publicFolderScripts = '../../../bower_components';
     const userRoutes = require('../routes/user');
@@ -17,14 +17,20 @@
 
     let app = express();
 
+    app.use(function (req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+
     // Configure session on redisStore.
     app.use(session({
-        store: new RedisStore({ 
+        store: new RedisStore({
             url: '//cache:6379'
         }),
-        secret: process.env.SESSION_SECRET_KEY, 
+        secret: process.env.SESSION_SECRET_KEY,
         resave: false,
-        saveUninitialized: false 
+        saveUninitialized: false
     }));
     app.use(passport.initialize());
     app.use(passport.session());

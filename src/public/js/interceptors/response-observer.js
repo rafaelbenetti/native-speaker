@@ -7,7 +7,7 @@
             return {
                 'responseError': function (errorResponse) {
                     if (errorResponse.status === 403) {
-                        $window.location.href = 'http://localhost:3000/account';
+                        $window.location.href = `${location.origin}/account`;
                     }
                     return $q.reject(errorResponse);
                 }

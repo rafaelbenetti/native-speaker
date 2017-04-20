@@ -7,7 +7,7 @@
 
     function apiFactory() {
 
-        const urlBase = 'http://localhost:3000';
+        const urlBase = location.origin;
 
         var getUsersUrl = function () {
             return `${urlBase}/users`;
