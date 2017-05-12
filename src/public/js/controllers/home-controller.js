@@ -4,7 +4,7 @@
     angular
         .module('nativeSpeaker')
         .config(function (gravatarProviderProvider) {
-            gravatarProviderProvider.setSize(100);
+            gravatarProviderProvider.setSize(80);
         })
         .controller('HomeController', ['userService', 'gravatarProvider', homeController]);
 

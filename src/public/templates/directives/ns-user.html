@@ -2,13 +2,15 @@
     <img class="user-img" ng-src="{{homeCtrl.getGravatarUrl(user.email)}}">
     <div>
         <div class="user-header">
-            <span class="user-status"></span>
+            <img class="user-flag" height="30px" width="30px" ng-src="assets/img/flags/{{user.country}}.png">
             <span class="user-name">{{user.name}}</span>
             <span class="user-star yellow" ng-repeat="star in [1,2,3,4,5]"></span>
         </div>
-        <p class="user-description">
-            Mussum Ipsum, cacilds vidis litro abertis. Cevadis im ampola pa arma uma pindureta. Suco de cevadiss, é um leite divinis,
-            qui tem lupuliz, matis, aguis e fermentis.
-        </p>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            </p>
+        </div>
+        <ns-languages languages="user.languages" limit="3"></ns-languages>
     </div>
 </div>

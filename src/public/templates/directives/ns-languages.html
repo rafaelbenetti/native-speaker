@@ -1,0 +1,7 @@
+ <div class="languages-group">
+    <span ng-repeat="language in languages | limitTo:limit">                
+        <label class="level level-{{language.level}}">
+            <img class="language" height="30px" width="30px" ng-src="assets/img/languages/{{language.name}}.png"/>
+        </label>              
+    </span>
+</div>
