@@ -1,5 +1,5 @@
 <div class="user-group" ng-repeat="user in homeCtrl.users">
-    <img class="user-img" ng-src="assets/img/user.png">
+    <img class="user-img" ng-src="{{homeCtrl.getGravatarUrl(user.email)}}">
     <div>
         <div class="user-header">
             <span class="user-status"></span>

@@ -3,18 +3,25 @@
 
     angular
         .module('nativeSpeaker')
-        .controller('HomeController', ['userService', homeController]);
+        .config(function (gravatarProviderProvider) {
+            gravatarProviderProvider.setSize(100);
+        })
+        .controller('HomeController', ['userService', 'gravatarProvider', homeController]);
 
-    function homeController(userService) {
-        
+    function homeController(userService, gravatarProvider) {
+
         let controller = this;
         let users = [];
-        
+
         controller.findUsers = () => {
             userService.find()
                 .then((users) => {
                     controller.users = users;
                 });
+        };
+
+        controller.getGravatarUrl = function (email) {
+            return gravatarProvider(email);
         };
 
         controller.findUsers();
