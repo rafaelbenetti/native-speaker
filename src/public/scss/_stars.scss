@@ -1,0 +1,18 @@
+.star::after {
+    font-size: 200%;
+    content: '★';
+    display: inline-block;
+    transform: scale(0.7);
+    margin: -4px;
+}
+
+.star.yellow {
+    color: #ffc700;
+}
+
+@media screen and (min-width: 768px) {
+    .stars {
+        display: inline;
+        white-space: nowrap;
+    }
+}

@@ -1,13 +1,13 @@
 <div class="user-group" ng-repeat="user in homeCtrl.users">
     <img class="user-img" ng-src="{{homeCtrl.getGravatarUrl(user.email)}}">
     <div>
-        <div class="user-header">
-            <img class="user-flag" height="30px" width="30px" ng-src="assets/img/flags/{{user.country}}.png">
-            <span class="user-name">{{user.name}}</span>
+        <div class="user-header">            
+            <img class="user-flag" height="30px" width="30px" ng-src="assets/img/flags/{{user.country}}.png">            
+            <span class="user-name">{{user.name}}</span>            
             <ns-stars></ns-stars>
         </div>
         <div>
-            <p>
+            <p class="user-description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
             </p>
         </div>
