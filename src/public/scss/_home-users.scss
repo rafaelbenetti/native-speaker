@@ -4,11 +4,14 @@
     box-shadow: 0 8px 6px -6px #8e8585;
     cursor: pointer;
     display: inline-block;
-    margin: 10px;
+    margin: 15px;
     padding: 10px;
-    width: 90%;    
+    width: 90%;
     & * {
         cursor: pointer;
+    }
+    &:hover {
+        animation: grow .2s forwards;
     }
 }
 
@@ -32,10 +35,12 @@
     font-weight: 600;
     color: #717171;
 }
+
 .user-img {
     margin-right: 10px;
     border-radius: 50%;
 }
+
 .user-description {
     margin: 0;
 }
@@ -52,5 +57,14 @@
 @media screen and (min-width: 1000px) {
     .user-group {
         width: 40%;
+    }
+}
+
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.03);
     }
 }
