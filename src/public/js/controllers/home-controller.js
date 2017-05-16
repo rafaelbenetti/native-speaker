@@ -20,6 +20,13 @@
                 });
         };
 
+        controller.findUsersBy = (name) => {
+            userService.findBy(name)
+                .then((users) => {
+                    controller.users = users;
+                })
+        };
+
         controller.getGravatarUrl = function (email) {
             return gravatarProvider(email);
         };

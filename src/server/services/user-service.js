@@ -7,24 +7,27 @@
     let userService = {};
 
     userService.find = function () {
-        return new Promise((resolve, reject) => {
-            mongo.DB.collection(COLLECTION)
-                .find()
-                .toArray()
-                .then((result) => resolve(result),
-                    reject);
-        });
+        return mongo.DB.collection(COLLECTION)
+            .find()
+            .toArray();
+    };
+
+    userService.findBy = function (name) {
+        return mongo.DB.collection(COLLECTION)
+            .find({
+                'name': {
+                    $regex: name,
+                    $options: 'i'
+                }
+            })
+            .toArray();
     };
 
     userService.findOne = function (user) {
-        return new Promise((resolve, reject) => {
-            mongo.DB.collection(COLLECTION)
+        return mongo.DB.collection(COLLECTION)
                 .findOne(user, {
                     "_id": false
-                })
-                .then((result) => resolve(result),
-                    reject);
-        });
+                });
     };
 
     userService.create = function (user) {

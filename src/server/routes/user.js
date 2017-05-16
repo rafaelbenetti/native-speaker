@@ -24,5 +24,12 @@
                 .then((users) => res.json(users));
         });
 
+    router.route('/:name')
+        .get((req, res) => {
+            userController
+                .findBy(req.params.name)
+                .then((users) => res.json(users));
+        });
+
     module.exports = router;
 })();

@@ -15,5 +15,13 @@
                 })
                 .then(users => users.data);
         };
+
+        service.findBy = function (name) {
+            return $http({
+                method: 'GET',
+                url: `${apiFactory.getUsersUrl()}/${name}`
+            })
+            .then(users => users.data);
+        };
     };
 })();

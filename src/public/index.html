@@ -12,8 +12,8 @@
 <body ng-app="nativeSpeaker" ng-controller="HomeController as homeCtrl">
     <header class="header">
         <div class="search-group">
-            <input class="search-input" type="text">
-            <img ng-click="homeCtrl.findUsers()" class="search-icon" src="assets/img/search.png">
+            <input class="search-input" type="text" ng-model="search" placeholder="Type for search">
+            <img ng-click="homeCtrl.findUsersBy(search)" class="search-icon" src="assets/img/search.png">
         </div> 
         
     </header>
